@@ -11,7 +11,7 @@ public class Url : ValueObject
     public Url(string address)
     {
         Address = address;
-        InvalidUrlException.ThrowIfInvalid(Address);
+        InvalidUrlException.ThrowIfNullOrInvalid(Address);
     }
 
     /// <summary>

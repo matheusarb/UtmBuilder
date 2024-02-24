@@ -11,15 +11,15 @@ public partial class InvalidUrlException : Exception
     {
     }
 
-    public static void ThrowIfInvalid(
+    public static void ThrowIfNullOrInvalid(
         string address,
         string message = DefaultUrlMessage)
     {
         if (string.IsNullOrEmpty(address))
-            throw new InvalidUrlException();
+            throw new InvalidUrlException(message);
 
         if (!UrlRegex().IsMatch(address))
-            throw new InvalidUrlException();
+            throw new InvalidUrlException(message);
     }
 
     [GeneratedRegex(

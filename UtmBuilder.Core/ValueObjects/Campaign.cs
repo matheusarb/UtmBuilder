@@ -1,3 +1,5 @@
+using UtmBuilder.Core.ValueObjects.Exceptions;
+
 namespace UtmBuilder.Core.ValueObjects;
 
 public class Campaign : ValueObject
@@ -25,6 +27,10 @@ public class Campaign : ValueObject
         Id = id;
         Term = term;
         Content = content;
+
+        InvalidCampaignException.ThrowIfNullOrInvalid(Source, "Source item is invalid.");
+        InvalidCampaignException.ThrowIfNullOrInvalid(Medium, "Medium item is invalid.");
+        InvalidCampaignException.ThrowIfNullOrInvalid(Name, "Name item is invalid.");
     }
 
     /// <summary>
