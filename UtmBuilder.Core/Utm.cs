@@ -1,4 +1,5 @@
 
+using UtmBuilder.Core.ExtensionMethods;
 using UtmBuilder.Core.ValueObjects;
 
 namespace UtmBuilder.Core;
@@ -25,6 +26,6 @@ public class Utm
     {
         var segments = new List<string>();
 
-        return $"{Url.Address}?";
+        return $"{Url.Address}?{string.Join("&", segments)}";
     }
 }
