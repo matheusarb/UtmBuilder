@@ -39,11 +39,11 @@ public class Utm
 
         var pars = segments[1].Split("&");
         var source = pars.Where(x => x.StartsWith("utm_source")).FirstOrDefault().Split("=")[1];
-        var medium = pars.Where(x => x.StartsWith("utm_medium")).FirstOrDefault();
-        var campaign = pars.Where(x => x.StartsWith("utm_campaign")).FirstOrDefault();
-        var id = pars.Where(x => x.StartsWith("utm_id")).FirstOrDefault();
-        var term = pars.Where(x => x.StartsWith("utm_term")).FirstOrDefault();
-        var content = pars.Where(x => x.StartsWith("utm_content")).FirstOrDefault();
+        var medium = pars.Where(x => x.StartsWith("utm_medium")).FirstOrDefault().Split("=")[1];
+        var campaign = pars.Where(x => x.StartsWith("utm_campaign")).FirstOrDefault().Split("=")[1];
+        var id = pars.Where(x => x.StartsWith("utm_id")).FirstOrDefault().Split("=")[1];
+        var term = pars.Where(x => x.StartsWith("utm_term")).FirstOrDefault().Split("=")[1];
+        var content = pars.Where(x => x.StartsWith("utm_content")).FirstOrDefault().Split("=")[1];
 
         var utm = new Utm(
             new Url(segments[0]),
