@@ -16,4 +16,8 @@
     <PackageReference Include="coverlet.collector" Version="3.2.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\UtmBuilder.Core\UtmBuilder.Core.csproj" />
+  </ItemGroup>
+
 </Project>

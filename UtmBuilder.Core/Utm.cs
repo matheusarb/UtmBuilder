@@ -34,7 +34,7 @@ public class Utm
 
         var url = new Url(link);
         var segments = url.Address.Split("?");
-        if (segments.Length < 2)
+        if (segments.Length == 1)
             throw new InvalidUrlException("No segments provided");
 
         var pars = segments[1].Split("&");
