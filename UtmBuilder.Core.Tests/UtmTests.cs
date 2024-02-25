@@ -11,7 +11,7 @@ namespace UtmBuilder.Core.Tests;
 public class UtmTests
 {
     private Url link = new Url("https://example.io");
-    private Campaign campaign = new Campaign("source", "medium", "name");
+    private Campaign campaign = new Campaign("source", "medium", "name", "id", "term", "content");
 
     [TestMethod]
     public void Should_return_URL_from_utm()
