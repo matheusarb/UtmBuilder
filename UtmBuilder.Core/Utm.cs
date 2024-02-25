@@ -22,6 +22,10 @@ public class Utm
     /// </summary>
     public Campaign Campaign { get; }
 
+    //Implicit Operator
+    public static implicit operator string(Utm utm)
+        => utm.ToString();
+
     public override string ToString()
     {
         var segments = new List<string>();
