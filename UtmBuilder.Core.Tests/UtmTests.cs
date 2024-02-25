@@ -10,14 +10,9 @@ namespace UtmBuilder.Core.Tests;
 [TestClass]
 public class UtmTests
 {
-    private Url url = new Url("https://example.io");
-    private Campaign campaign = new Campaign("src", "med", "nme", "id", "trm", "cnt");
-
-    [TestMethod]
-    public void Should_return_URL_from_utm()
-    {
-        var utm = new Utm(url, campaign);
-        var result = "https://example.io" +
+    private readonly Url url = new Url("https://example.io");
+    private readonly Campaign campaign = new Campaign("src", "med", "nme", "id", "trm", "cnt");
+    private readonly string fullCampaignUrl = "https://example.io" +
             "?utm_source=src" +
             "&utm_medium=med" +
             "&utm_campaign=nme" +
@@ -25,6 +20,18 @@ public class UtmTests
             "&utm_term=trm" +
             "&utm_content=cnt";
 
-        Assert.AreEqual(result, utm.ToString());
+    [TestMethod]
+    public void Should_return_URL_from_utm()
+    {
+        var utm = new Utm(url, campaign);
+        
+        Assert.AreEqual(fullCampaignUrl, utm.ToString());
+    }
+
+    [TestMethod]
+    public void Should_implicitly_convert_utm_URL_to_string()
+    {
+        var utm = new Utm(url, campaign);
+        Assert.AreEqual(fullCampaignUrl, (string)utm);
     }
 }
